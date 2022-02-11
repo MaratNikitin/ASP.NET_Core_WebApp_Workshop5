@@ -1,0 +1,101 @@
+﻿<!--
+ * This web app creates a website of a fictional travel company called Travel Experts.
+    The website allows users to learn about the company, see contact information,
+    register a new user, a registered user can login/logout, update own data, see own
+    packages' data
+ * This is a view responsible for generating registration page for a new customer
+ * Author: Marat Nikitin
+ * SAIT, PROJ 207 - Threaded Project
+ * When: February 2022
+-->
+
+@model TravelExpertsData.Models.Customer
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <h1 class="offset-sm-2">Register</h1>
+
+    <hr />
+    <div>
+        <div class="col-12">
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustFirstName" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustFirstName" class="form-control col-md-4" placeholder="Required" />
+                    <span asp-validation-for="CustFirstName" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustLastName" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustLastName" class="form-control col-md-4" placeholder="Required" />
+                    <span asp-validation-for="CustLastName" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustAddress" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustAddress" class="form-control col-md-4" placeholder="Required"/>
+                    <span asp-validation-for="CustAddress" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustCity" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustCity" class="form-control col-md-4" placeholder="Required"/>
+                    <span asp-validation-for="CustCity" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustProv" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustProv" class="form-control col-md-4" placeholder="Required. 2 charachters only, e.g. AB"/>
+                    <span asp-validation-for="CustProv" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustPostal" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustPostal" class="form-control col-md-4" placeholder="Required" />
+                    <span asp-validation-for="CustPostal" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustCountry" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustCountry" class="form-control col-md-4" />
+                    <span asp-validation-for="CustCountry" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustHomePhone" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustHomePhone" class="form-control col-md-4"  placeholder="XXX-XXX-XXXX format" />
+                    <span asp-validation-for="CustHomePhone" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustBusPhone" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustBusPhone" class="form-control col-md-4" placeholder="XXX-XXX-XXXX format" />
+                    <span asp-validation-for="CustBusPhone" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustEmail" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustEmail" class="form-control col-md-4" />
+                    <span asp-validation-for="CustEmail" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustPassword" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustPassword" class="form-control col-md-4" />
+                    <span asp-validation-for="CustPassword" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="ConfirmPassword" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="ConfirmPassword" class="form-control col-md-4" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="AgentId" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="AgentId" class="form-control col-md-4" placeholder="Leave empty if Agent ID is unknown" />
+                    <span asp-validation-for="AgentId" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <input type="submit" value="Register" class="btn btn-primary ml-5 px-4 mt-4" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

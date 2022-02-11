@@ -1,0 +1,41 @@
+﻿<!--
+ * This web app creates a website of a fictional travel company called Travel Experts.
+    The website allows users to learn about the company, see contact information,
+    register a new user, a registered user can login/logout, update own data, see own
+    packages' data
+ * This file contains parts of the navigation bar responsible for user authentication
+ * Author: Marat Nikitin
+ * SAIT, PROJ 207 - Threaded Project
+ * When: February 2022
+-->
+
+@using Microsoft.AspNetCore.Http <!-- It's needed to use data from session in this file'-->
+<ul class="navbar-nav flex-grow-1 ml-auto align-middle">
+    @if (User.Identity.IsAuthenticated)
+    {
+    <li class="nav-item">
+        <a class="nav-link text-primary align-middle" asp-action="/Slips/Index" title="Welcome">
+            Welcome,&nbsp;@Context.Session.GetString("CurrentCustomerFirstName")!
+            <!-- Registered customer is greeted by First name at the navigation panel (top right corner) -->
+        </a>
+    </li>
+    <li class="nav-item">
+        <form asp-controller="Account" asp-action="Logout"
+              asp-route-returnUrl=@Url.Action("Index", "Slips" )>
+            <button type="submit" class="nav-link bg-white font-weight-bold border-0
+                        text-primary align-middle">
+                Logout
+            </button>
+        </form>
+    </li>
+    }
+    else
+    {
+    <li class="nav-item">
+        <a class="nav-link text-primary" asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-primary" asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+    }
+</ul>
