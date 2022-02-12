@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,9 +60,25 @@ namespace MVC_TravelExperts.Controllers
                 ProfileManager.UpdateCustomerInfo(updateCust);
                 TempData["Message"] = "Your information was successfully updated!";
             }
-            catch
+            catch//(DbUpdateException ex)
             {
-                TempData["Message"] = "There was an unexpected error while trying to update your information";
+                TempData["Message"] = "There was an unexpected error while trying to update your information: ";// + ex.InnerException;
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        // when a user changes their password
+        [HttpPost]
+        public IActionResult ChangePassword(Customer updateCust)
+        {
+            try
+            {
+                ProfileManager.UpdateCustomerPassword(updateCust);
+                TempData["Message"] = "Your information was successfully updated!";
+            }
+            catch //(DbUpdateException ex)
+            {
+                TempData["Message"] = "There was an unexpected error while trying to update your information:"; //+ ex.InnerException;
             }
             return RedirectToAction("Index", "Home");
         }

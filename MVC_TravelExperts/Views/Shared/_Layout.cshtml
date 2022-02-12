@@ -33,14 +33,12 @@
             </div>
         </nav>
     </header>
-
-    @if (TempData["Message"] != null) // there is a db connection problem
+    @if (TempData["Message"] != null)
     {
-        <h4 class="text-center text-white p-2 bg-info")">
+        <h4 class="@(TempData["IsError"] != null ? "bg-danger" : "bg-success") text-center text-light font-weight-bold p-2">
             @TempData["Message"]
         </h4>
     }
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
