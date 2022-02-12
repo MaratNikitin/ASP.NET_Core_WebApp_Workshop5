@@ -50,22 +50,22 @@
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustPostal" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustPostal" class="form-control col-md-4" placeholder="Required" />
+                    <input asp-for="CustPostal" class="form-control col-md-4" placeholder="Required, 'A0A 0A0' format'" />
                     <span asp-validation-for="CustPostal" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustCountry" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustCountry" class="form-control col-md-4" />
+                    <input asp-for="CustCountry" class="form-control col-md-4" placeholder="Canada"/>
                     <span asp-validation-for="CustCountry" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustHomePhone" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustHomePhone" class="form-control col-md-4"  placeholder="XXX-XXX-XXXX format" />
+                    <input asp-for="CustHomePhone" class="form-control col-md-4"  placeholder="XXXXXXXXXX (10 digits only)" />
                     <span asp-validation-for="CustHomePhone" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustBusPhone" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustBusPhone" class="form-control col-md-4" placeholder="XXX-XXX-XXXX format" />
+                    <input asp-for="CustBusPhone" class="form-control col-md-4" placeholder="XXXXXXXXXX (10 digits only)" />
                     <span asp-validation-for="CustBusPhone" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
@@ -75,12 +75,12 @@
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustPassword" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustPassword" class="form-control col-md-4" />
+                    <input asp-for="CustPassword" type="password" class="form-control col-md-4" />
                     <span asp-validation-for="CustPassword" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="ConfirmPassword" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="ConfirmPassword" class="form-control col-md-4" />
+                    <input asp-for="ConfirmPassword" type="password" class="form-control col-md-4" />
                     <span asp-validation-for="ConfirmPassword" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
