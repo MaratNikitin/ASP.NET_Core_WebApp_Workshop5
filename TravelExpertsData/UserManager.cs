@@ -40,7 +40,8 @@ namespace TravelExpertsData
         /// </remarks>
         public static Customer Authenticate(string username, string password)
         {
-            var user = _customers.SingleOrDefault(usr => usr.CustEmail == username
+            TravelExpertsContext db = new TravelExpertsContext();
+            var user = db.Customers.SingleOrDefault(usr => usr.CustEmail == username
                                                     && usr.CustPassword == password);
             return user; //this will either be null or an object
         }
