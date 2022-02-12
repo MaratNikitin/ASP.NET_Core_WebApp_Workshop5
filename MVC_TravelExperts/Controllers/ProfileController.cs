@@ -49,5 +49,21 @@ namespace MVC_TravelExperts.Controllers
             else // change password
                 return View("Password", currentCustomer);
         }
+
+        // when a user updates their information
+        [HttpPost]
+        public IActionResult Update(Customer updateCust)
+        {
+            try
+            {
+                ProfileManager.UpdateCustomerInfo(updateCust);
+                TempData["Message"] = "Your information was successfully updated!";
+            }
+            catch
+            {
+                TempData["Message"] = "There was an unexpected error while trying to update your information";
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

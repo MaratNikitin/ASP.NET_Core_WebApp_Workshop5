@@ -33,5 +33,30 @@ namespace TravelExpertsData
             Customer customer = _customers.Single(c => c.CustomerId == custID);
             return customer;
         }
+
+        /// <summary>
+        /// Updates a customers information
+        /// </summary>
+        /// <param name="newCustInfo">customer object with the updated info</param>
+        public static void UpdateCustomerInfo(Customer newCustInfo)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            //Customer oldCustInfo = db.Customers.Where(c => c.CustomerId == newCustInfo.CustomerId).Single();
+            db.Customers.Update(newCustInfo);
+
+            //oldCustInfo.CustFirstName = newCustInfo.CustFirstName;
+            //oldCustInfo.CustLastName = newCustInfo.CustLastName;
+            //oldCustInfo.CustAddress = newCustInfo.CustAddress;
+            //oldCustInfo.CustCity = newCustInfo.CustCity;
+            //oldCustInfo.CustProv = newCustInfo.CustProv;
+            //oldCustInfo.CustPostal = newCustInfo.CustPostal;
+            //oldCustInfo.CustCountry = newCustInfo.CustCountry;
+            //oldCustInfo.CustHomePhone = newCustInfo.CustHomePhone;
+            //oldCustInfo.CustBusPhone = newCustInfo.CustBusPhone;
+            //oldCustInfo.CustEmail = newCustInfo.CustEmail;
+            //oldCustInfo.CustPassword = newCustInfo.CustPassword;
+            //oldCustInfo.ConfirmPassword = newCustInfo.ConfirmPassword;
+            db.SaveChanges();
+        }
     }
 }
