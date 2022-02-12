@@ -15,4 +15,8 @@
     <ProjectReference Include="..\TravelExpertsData\TravelExpertsData.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Booking\" />
+  </ItemGroup>
+
 </Project>
