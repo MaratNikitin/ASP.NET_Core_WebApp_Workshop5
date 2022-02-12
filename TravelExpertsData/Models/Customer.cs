@@ -4,7 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-#nullable disable
+/*
+*This web app creates a website of a fictional travel company called Travel Experts.
+    The website allows users to learn about the company, see contact information,
+   register a new user, a registered user can login/logout, update own data, see own
+    packages' data
+ * This class was created by Entity Framework Core and then modified to ensure data
+    validation in the customer registration form
+ * Author: Marat Nikitin
+ * SAIT, PROJ 207 - Threaded Project
+ * When: February 2022
+*/
 
 namespace TravelExpertsData.Models
 {
@@ -48,6 +58,8 @@ namespace TravelExpertsData.Models
 
         [Required]
         [StringLength(7)]
+        [RegularExpression(@"[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][\s][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]",
+         ErrorMessage = "Please enter a valid Canadian postal code in 'A0A 0A0' format")]
         [Display(Name = "Postal Code")]
         public string CustPostal { get; set; }
 
@@ -56,20 +68,23 @@ namespace TravelExpertsData.Models
         public string CustCountry { get; set; }
 
         [StringLength(20)]
-        [RegularExpression(@"\d{3}-\d{3}-\d{4}",
-         ErrorMessage = "Please enter phone number in XXX-XXX-XXXX format")]
+        [RegularExpression(@"\d{10}",
+         ErrorMessage = "Please enter phone # in XXXXXXXXXX format (10 digits only)")]
         [Display(Name = "Home Phone")]
         public string CustHomePhone { get; set; }
 
         [Required]
-        [RegularExpression(@"\d{3}-\d{3}-\d{4}",
-         ErrorMessage = "Please enter phone number in XXX-XXX-XXXX format")]
+        [RegularExpression(@"\d{10}",
+         ErrorMessage = "Please enter phone # in XXXXXXXXXX format (10 digits only)")]
         [StringLength(20)]
         [Display(Name = "Cell (Bus) Phone")]
         public string CustBusPhone { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50)]
+        [RegularExpression(@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
+            + "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$",
+            ErrorMessage = "Please enter a correct e-mail")] // got this RegEx from Stack Overflow
         [Display(Name = "E-mail")]
         public string CustEmail { get; set; }
 
