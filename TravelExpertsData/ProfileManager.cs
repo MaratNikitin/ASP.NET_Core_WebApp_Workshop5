@@ -78,5 +78,29 @@ namespace TravelExpertsData
             string password = db.Customers.Where(c => c.CustomerId == custID).Select(c => c.CustPassword).First().ToString();
             return password;
         }
+
+        /// <summary>
+        /// Returns a customer id given their email as a string
+        /// </summary>
+        /// <param name="custEmail">email as a string</param>
+        /// <returns>customer id as a nullable int</returns>
+        public static int? GetCustIdFromEmail(string? custEmail)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            int? custId = db.Customers.Where(c => c.CustEmail == custEmail).Select(c => c.CustomerId).FirstOrDefault();
+            return custId;
+        }
+
+        /// <summary>
+        /// Returns a customer object given their email as a string
+        /// </summary>
+        /// <param name="custEmail">email as a string</param>
+        /// <returns>a Customer object</returns>
+        public static Customer GetCustomerFromEmail(string? custEmail)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            Customer cust = db.Customers.Where(c => c.CustEmail == custEmail).First();
+            return cust;
+        }
     }
 }

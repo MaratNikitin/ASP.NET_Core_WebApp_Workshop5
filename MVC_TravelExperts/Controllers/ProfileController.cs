@@ -29,8 +29,14 @@ namespace MVC_TravelExperts.Controllers
         public IActionResult Profile(string id = "My Profile")
         {
             // Get the customer object using their cust id
-            int custId = (int)HttpContext.Session.GetInt32("CurrentCustomer");
-            Customer currentCustomer = ProfileManager.GetCustomerByID(custId); 
+            int? custId = HttpContext.Session.GetInt32("CurrentCustomer");
+            // make sure we have a cust id, and if not, get it from cookies
+            if(custId == null)
+            {
+                custId = ProfileManager.GetCustIdFromEmail(User.Identity.Name); // get the cust id from the email in cookies
+            }
+
+            Customer currentCustomer = ProfileManager.GetCustomerByID((int)custId); 
 
             // Make a list of values we want to filter by and pass it to the ViewBag
             List<String> filters = new List<string> { "My Profile", "Update My Profile", "Update Password" };
