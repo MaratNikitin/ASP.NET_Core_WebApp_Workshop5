@@ -26,20 +26,25 @@ namespace MVC_TravelExperts.Controllers
 
         // When a user clicks to view their profile
         [Route("[controller]s/{id?}")]
-        public IActionResult Profile(string id = "My Info")
+        public IActionResult Profile(string id = "My Profile")
         {
             // Get the customer object using their cust id
             int custId = (int)HttpContext.Session.GetInt32("CurrentCustomer");
             Customer currentCustomer = ProfileManager.GetCustomerByID(custId); 
 
             // Make a list of values we want to filter by and pass it to the ViewBag
-            List<String> filters = new List<string> { "My Info", "Change Password" };
+            List<String> filters = new List<string> { "My Profile", "Update My Profile", "Update Password" };
             ViewBag.Filters = filters;
             ViewBag.SelectedFilter = id;
 
             // return the view the customer wants to see
-            if (id == "My Info") // view their information
+            if (id == "My Profile") // view their information
                 return View(currentCustomer);
+
+            else if(id == "Update My Profile") // they want to change their info
+            {
+                return View("UpdateProfile", currentCustomer);
+            }
 
             else // change password
                 return View("ConfirmPassword", currentCustomer);
@@ -58,7 +63,7 @@ namespace MVC_TravelExperts.Controllers
             {
                 TempData["IsError"] = "There was an unexpected error while trying to update your information: ";
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
         // when a user confirms their old password to change it
@@ -73,8 +78,9 @@ namespace MVC_TravelExperts.Controllers
             }
             else // the password does not match
             {
-                TempData["IsError"] = "You did not enter the correct password.";
-                return RedirectToAction("Index", "Profile");
+                TempData["IsError"] = true;
+                TempData["Message"] = "You did not enter the correct password.";
+                return RedirectToAction("Profile", new { id = "Update Password" });
             }
         }
 
@@ -89,7 +95,8 @@ namespace MVC_TravelExperts.Controllers
             }
             catch
             {
-                TempData["IsError"] = "There was an unexpected error while trying to change your password";
+                TempData["IsError"] = true;
+                TempData["Message"] = "There was an unexpected error while trying to change your password";
             }
             return RedirectToAction("Index", "Profile");
         }

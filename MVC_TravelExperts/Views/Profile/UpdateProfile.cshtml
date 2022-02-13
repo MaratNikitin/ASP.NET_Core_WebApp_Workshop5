@@ -1,0 +1,96 @@
+﻿<!--
+    This page displays the users information (once they are logged in) and allows them to update their info if they please
+    Author: Scott Holmes
+    SAIT, PROJ 207 - Threaded Project
+    When: February 2022
+-->
+
+@model TravelExpertsData.Models.Customer
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container">
+    <h1 class="offset-sm-2">Update Your Information</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group">
+                @foreach (String s in ViewBag.Filters)
+                {
+                <a asp-controller="Profile" asp-action="Profile" asp-route-id="@s"
+                   class="list-group-item list-group-item-action
+                             @(ViewBag.SelectedFilter == s ? " active" : "" )">
+                    @s
+                </a>
+                }
+            </div>
+        </div>
+
+        <div class="col-10">
+            <form asp-action="Update" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustFirstName" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustFirstName" class="form-control col-md-4" value="@Model.CustFirstName" />
+                    <span asp-validation-for="CustFirstName" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustLastName" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustLastName" class="form-control col-md-4" value="@Model.CustLastName" />
+                    <span asp-validation-for="CustLastName" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustAddress" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustAddress" class="form-control col-md-4" value="@Model.CustAddress" />
+                    <span asp-validation-for="CustAddress" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustCity" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustCity" class="form-control col-md-4" value="@Model.CustCity" />
+                    <span asp-validation-for="CustCity" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustProv" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustProv" class="form-control col-md-4" value="@Model.CustProv" />
+                    <span asp-validation-for="CustProv" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustPostal" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustPostal" class="form-control col-md-4" value="@Model.CustPostal" />
+                    <span asp-validation-for="CustPostal" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustCountry" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustCountry" class="form-control col-md-4" value="@Model.CustCountry" />
+                    <span asp-validation-for="CustCountry" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustHomePhone" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustHomePhone" class="form-control col-md-4" value="@Model.CustHomePhone" />
+                    <span asp-validation-for="CustHomePhone" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustBusPhone" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustBusPhone" class="form-control col-md-4" value="@Model.CustBusPhone" />
+                    <span asp-validation-for="CustBusPhone" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <label asp-for="CustEmail" class="control-label col-md-2 justify-content-start"></label>
+                    <input asp-for="CustEmail" class="form-control col-md-4" value="@Model.CustEmail" />
+                    <span asp-validation-for="CustEmail" class="text-danger col-md-6"></span>
+                </div>
+                <div class="form-group form-group form-inline">
+                    <input type="submit" value="Apply Changes" class="btn btn-primary ml-5 px-4 mt-4" />
+                </div>
+                <input type="hidden" asp-for="@Model.CustomerId" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
