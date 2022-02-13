@@ -66,5 +66,17 @@ namespace TravelExpertsData
 
             db.SaveChanges();
         }
+
+        /// <summary>
+        /// Gets a customers password given their customer id
+        /// </summary>
+        /// <param name="custID">customer id as an int</param>
+        /// <returns>password as a string</returns>
+        public static String GetPasswordByID(int custID)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            String password = db.Customers.Where(c => c.CustomerId == custID).Select(c => c.CustPassword).ToString();
+            return password;
+        }
     }
 }

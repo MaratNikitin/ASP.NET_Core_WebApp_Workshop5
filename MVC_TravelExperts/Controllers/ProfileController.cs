@@ -48,7 +48,7 @@ namespace MVC_TravelExperts.Controllers
                 return View(currentCustomer);
 
             else // change password
-                return View("Password", currentCustomer);
+                return View("ConfirmPassword", currentCustomer);
         }
 
         // when a user updates their information
@@ -60,11 +60,28 @@ namespace MVC_TravelExperts.Controllers
                 ProfileManager.UpdateCustomerInfo(updateCust);
                 TempData["Message"] = "Your information was successfully updated!";
             }
-            catch//(DbUpdateException ex)
+            catch
             {
-                TempData["Message"] = "There was an unexpected error while trying to update your information: ";// + ex.InnerException;
+                TempData["IsError"] = "There was an unexpected error while trying to update your information: ";
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        // when a user confirms their old password to change it
+        [HttpPost]
+        public IActionResult ConfirmPassword(Customer updateCust)
+        {
+            // get the oldpassword and compare it to the values entered
+            string oldPassword = ProfileManager.GetPasswordByID(updateCust.CustomerId);
+            if(updateCust.CustPassword == oldPassword) // the passwords match
+            {
+                return View("ChangePassword"); // send them to the changepassword page
+            }
+            else // the password does not match
+            {
+                TempData["IsError"] = "You did not enter the correct password.";
+                return RedirectToAction("Index", "Profile");
+            }
         }
 
         // when a user changes their password
@@ -74,13 +91,13 @@ namespace MVC_TravelExperts.Controllers
             try
             {
                 ProfileManager.UpdateCustomerPassword(updateCust);
-                TempData["Message"] = "Your information was successfully updated!";
+                TempData["Message"] = "Your password has been changed";
             }
-            catch //(DbUpdateException ex)
+            catch
             {
-                TempData["Message"] = "There was an unexpected error while trying to update your information:"; //+ ex.InnerException;
+                TempData["IsError"] = "There was an unexpected error while trying to change your password";
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Profile");
         }
     }
 }
