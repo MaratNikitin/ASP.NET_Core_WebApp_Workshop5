@@ -23,6 +23,9 @@
             <a class="nav-link text-primary" asp-controller="Profile" asp-action="Index">Profile</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link text-primary" asp-controller="CustomerBookingPackage" asp-action="Index">My Bookings</a>
+        </li>
+        <li class="nav-item">
             <form asp-controller="Account" asp-action="Logout"
                   asp-route-returnUrl=@Url.Action("Index", "Home" )>
                 <button type="submit" class="nav-link bg-white font-weight-bold border-0
@@ -31,14 +34,14 @@
                 </button>
             </form>
         </li>
-        }
-        else
-        {
+    }
+    else
+    {
         <li class="nav-item">
             <a class="nav-link text-primary" asp-controller="Account" asp-action="Login">Login</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-primary" asp-controller="Account" asp-action="Register">Register</a>
         </li>
-        }
-    </ul>
+    }
+</ul>
