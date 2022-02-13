@@ -16,12 +16,6 @@
 
 <!-- A feedback message to a user confirming successful registration (with green background) or wrong
     username-password combination (with red background) will be displayed here: -->
-@if (TempData["Message"] != null)
-{
-    <h4 class="@(TempData["IsError"] != null ? "bg-danger" : "bg-success") text-center text-light font-weight-bold p-2">
-        @TempData["Message"]
-    </h4>
-}
 
 <form asp-action="Login" class="container">
     <h1 class="offset-sm-2 text-primary mb-5">Login</h1>

@@ -33,6 +33,12 @@
             </div>
         </nav>
     </header>
+    @if (TempData["Message"] != null)
+    {
+        <h4 class="@(TempData["IsError"] != null ? "bg-danger" : "bg-success") text-center text-light font-weight-bold p-2">
+            @TempData["Message"]
+        </h4>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -41,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Travel Experts 
+            &copy; 2022 - Travel Experts
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

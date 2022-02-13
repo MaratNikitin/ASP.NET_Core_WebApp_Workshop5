@@ -13,18 +13,33 @@
 
 <div class="container">
     <h1 class="offset-sm-2">Update Your Information</h1>
-    <div>
-        <div class="col-12">
-            <form asp-action="Register" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group">
+                @foreach (String s in ViewBag.Filters)
+                {
+                <a asp-controller="Profile" asp-action="Profile" asp-route-id="@s"
+                   class="list-group-item list-group-item-action
+                             @(ViewBag.SelectedFilter == s ? " active" : "" )">
+                    @s
+                </a>
+                }
+            </div>
+        </div>
+
+        <div class="col-10">
+            <form asp-action="Update" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustFirstName" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustFirstName" class="form-control col-md-4" value="@Model.CustFirstName)" />
+                    <input asp-for="CustFirstName" class="form-control col-md-4" value="@Model.CustFirstName" />
                     <span asp-validation-for="CustFirstName" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustLastName" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustLastName" class="form-control col-md-4" value="@Model.CustLastName)" />
+                    <input asp-for="CustLastName" class="form-control col-md-4" value="@Model.CustLastName" />
                     <span asp-validation-for="CustLastName" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
@@ -64,27 +79,13 @@
                 </div>
                 <div class="form-group form-group form-inline">
                     <label asp-for="CustEmail" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustEmail" class="form-control col-md-4" value="@Model.CustEmail"/>
+                    <input asp-for="CustEmail" class="form-control col-md-4" value="@Model.CustEmail" />
                     <span asp-validation-for="CustEmail" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
-                    <label asp-for="CustPassword" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="CustPassword" class="form-control col-md-4" value="@Model.CustPassword" />
-                    <span asp-validation-for="CustPassword" class="text-danger col-md-6"></span>
+                    <input type="submit" value="Apply Changes" class="btn btn-primary ml-5 px-4 mt-4" />
                 </div>
-                <div class="form-group form-group form-inline">
-                    <label asp-for="ConfirmPassword" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="ConfirmPassword" class="form-control col-md-4" value="@Model.ConfirmPassword" />
-                    <span asp-validation-for="ConfirmPassword" class="text-danger col-md-6"></span>
-                </div>
-                <div class="form-group form-group form-inline">
-                    <label asp-for="AgentId" class="control-label col-md-2 justify-content-start"></label>
-                    <input asp-for="AgentId" class="form-control col-md-4" value="@Model.AgentId" readonly />
-                    <span asp-validation-for="AgentId" class="text-danger col-md-6"></span>
-                </div>
-                <div class="form-group form-group form-inline">
-                    <input type="submit" value="Save Changes" class="btn btn-primary ml-5 px-4 mt-4" />
-                </div>
+                <input type="hidden" asp-for="@Model.CustomerId" />
             </form>
         </div>
     </div>
