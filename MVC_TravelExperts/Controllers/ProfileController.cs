@@ -32,12 +32,6 @@ namespace MVC_TravelExperts.Controllers
             int custId = (int)HttpContext.Session.GetInt32("CurrentCustomer");
             Customer currentCustomer = ProfileManager.GetCustomerByID(custId); 
 
-            // turn the phone numbers into the correct display format (123-456-7890) and put them in the ViewBag
-            string custHomePhone = currentCustomer.CustHomePhone.ToString();
-            string custBusPhone = currentCustomer.CustBusPhone.ToString();
-            ViewBag.HomePhone = custHomePhone.Substring(0, 3) + '-' + custHomePhone.Substring(3, 3) + '-' + custHomePhone.Substring(6, 4);
-            ViewBag.BusPhone = custBusPhone.Substring(0, 3) + '-' + custBusPhone.Substring(3, 3) + '-' + custBusPhone.Substring(6, 4);
-
             // Make a list of values we want to filter by and pass it to the ViewBag
             List<String> filters = new List<string> { "My Info", "Change Password" };
             ViewBag.Filters = filters;

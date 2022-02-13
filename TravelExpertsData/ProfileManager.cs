@@ -72,10 +72,10 @@ namespace TravelExpertsData
         /// </summary>
         /// <param name="custID">customer id as an int</param>
         /// <returns>password as a string</returns>
-        public static String GetPasswordByID(int custID)
+        public static string GetPasswordByID(int custID)
         {
             TravelExpertsContext db = new TravelExpertsContext();
-            String password = db.Customers.Where(c => c.CustomerId == custID).Select(c => c.CustPassword).ToString();
+            string password = db.Customers.Where(c => c.CustomerId == custID).Select(c => c.CustPassword).First().ToString();
             return password;
         }
     }
