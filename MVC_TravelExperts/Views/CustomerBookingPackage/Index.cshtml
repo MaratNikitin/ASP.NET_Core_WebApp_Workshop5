@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MVC_TravelExperts.Models.CustomerBookingPackageViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Bookings</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Traveler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageBasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Traveler)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PackageName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PackageBasePrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                
+            </tr>
+
+        }
+    
+    </tbody>
+</table>
+<div class="form-inline justify-content-center">
+    <label class="justify-content-lg-around mr-5">Total Amount:</label>
+    
+    <label class="ml-5 justify-content-lg-around font-weight-bold">@ViewBag.Total</label> 
+    
+</div>
