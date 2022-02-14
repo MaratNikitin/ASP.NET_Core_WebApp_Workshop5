@@ -12,7 +12,7 @@
 }
 
 <div class="container">
-    <h1 class="offset-sm-2">Update Your Information</h1>
+    <h1 id="PageTitle">Update Your Information</h1>
 
     <hr />
     <div class="row">
@@ -83,7 +83,7 @@
                     <span asp-validation-for="CustEmail" class="text-danger col-md-6"></span>
                 </div>
                 <div class="form-group form-group form-inline">
-                    <input type="submit" value="Apply Changes" class="btn btn-primary ml-5 px-4 mt-4" />
+                    <input type="submit" value="Apply Changes" class="btn btn-primary px-4 mt-4" />
                 </div>
                 <input type="hidden" asp-for="@Model.CustomerId" />
             </form>

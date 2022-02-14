@@ -12,7 +12,7 @@
 }
 
 <div class="container">
-    <h1 class="offset-sm-2">Your Information</h1>
+    <h1 id="PageTitle">Your Information</h1>
 
     <hr />
     <div class="row">
@@ -33,57 +33,57 @@
             <div asp-validation-summary="ModelOnly"></div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustFirstName" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustFirstName" class="form-control col-md-4" value="@Model.CustFirstName" readonly />
+                <input asp-for="CustFirstName" id="ProfileFields" class="form-control col-md-4" value="@Model.CustFirstName" readonly />
                 <span asp-validation-for="CustFirstName" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustLastName" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustLastName" class="form-control col-md-4" value="@Model.CustLastName" readonly />
+                <input asp-for="CustLastName" id="ProfileFields" class="form-control col-md-4" value="@Model.CustLastName" readonly />
                 <span asp-validation-for="CustLastName" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustAddress" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustAddress" class="form-control col-md-4" value="@Model.CustAddress" readonly />
+                <input asp-for="CustAddress" id="ProfileFields" class="form-control col-md-4" value="@Model.CustAddress" readonly />
                 <span asp-validation-for="CustAddress" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustCity" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustCity" class="form-control col-md-4" value="@Model.CustCity" readonly />
+                <input asp-for="CustCity" id="ProfileFields" class="form-control col-md-4" value="@Model.CustCity" readonly />
                 <span asp-validation-for="CustCity" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustProv" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustProv" class="form-control col-md-4" value="@Model.CustProv" readonly />
+                <input asp-for="CustProv" id="ProfileFields" class="form-control col-md-4" value="@Model.CustProv" readonly />
                 <span asp-validation-for="CustProv" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustPostal" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustPostal" class="form-control col-md-4" value="@Model.CustPostal" readonly />
+                <input asp-for="CustPostal" id="ProfileFields" class="form-control col-md-4" value="@Model.CustPostal" readonly />
                 <span asp-validation-for="CustPostal" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustCountry" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustCountry" class="form-control col-md-4" value="@Model.CustCountry" readonly />
+                <input asp-for="CustCountry" id="ProfileFields" class="form-control col-md-4" value="@Model.CustCountry" readonly />
                 <span asp-validation-for="CustCountry" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustHomePhone" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustHomePhone" class="form-control col-md-4" value="@Model.CustHomePhone" readonly />
+                <input asp-for="CustHomePhone" id="ProfileFields" class="form-control col-md-4" value="@Model.CustHomePhone" readonly />
                 <span asp-validation-for="CustHomePhone" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustBusPhone" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustBusPhone" class="form-control col-md-4" value="@Model.CustBusPhone" readonly />
+                <input asp-for="CustBusPhone" id="ProfileFields" class="form-control col-md-4" value="@Model.CustBusPhone" readonly />
                 <span asp-validation-for="CustBusPhone" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="CustEmail" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="CustEmail" class="form-control col-md-4" value="@Model.CustEmail" readonly />
+                <input asp-for="CustEmail" id="ProfileFields" class="form-control col-md-4" value="@Model.CustEmail" readonly />
                 <span asp-validation-for="CustEmail" class="text-danger col-md-6"></span>
             </div>
             <div class="form-group form-group form-inline">
                 <label asp-for="AgentId" class="control-label col-md-2 justify-content-start"></label>
-                <input asp-for="AgentId" class="form-control col-md-4" value="@Model.AgentId" readonly />
+                <input asp-for="AgentId" id="ProfileFields" class="form-control col-md-4" value="@Model.AgentId" readonly />
                 <span asp-validation-for="AgentId" class="text-danger col-md-6"></span>
             </div>
             <input type="hidden" asp-for="@Model.CustomerId" />

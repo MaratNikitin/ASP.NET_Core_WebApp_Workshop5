@@ -130,3 +130,12 @@ body {
 {
     margin: auto;
 }
+#PageTitle {
+    color: #022758;
+}
+#ProfileFields { /*From Stack Overflow*/
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0px;
+}

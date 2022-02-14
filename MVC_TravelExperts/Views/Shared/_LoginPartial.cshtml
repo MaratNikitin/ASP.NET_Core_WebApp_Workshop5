@@ -14,27 +14,23 @@
     @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item">
-<<<<<<< Updated upstream
-            <a class="nav-link text-primary align-middle" asp-action="Index" asp-controller="Home" title="Welcome">
-                Welcome,&nbsp;@Context.Session.GetString("CurrentCustomerFirstName")! 
-=======
+<!--Updated upstream -->
             <a id="navLinks" class="nav-link align-middle" asp-action="Index" asp-controller="Home" title="Welcome">
                 Welcome,&nbsp;@Context.Session.GetString("CurrentCustomerFirstName")!
->>>>>>> Stashed changes
-                <!-- Registered customer is greeted by First name at the navigation panel (top right corner) -->
             </a>
+<!--Stashed changes-->
+<!-- Registered customer is greeted by First name at the navigation panel (top right corner) -->    
         </li>
         <li class="nav-item">
             <a id="navLinks" class="nav-link" asp-controller="Profile" asp-action="Index">Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" asp-controller="CustomerBookingPackage" asp-action="Index">My Bookings</a>
+            <a id="navLinks" class="nav-link" asp-controller="CustomerBookingPackage" asp-action="Index">My Bookings</a>
         </li>
         <li class="nav-item">
             <form asp-controller="Account" asp-action="Logout"
                   asp-route-returnUrl=@Url.Action("Index", "Home" )>
-                <button type="submit" class="nav-link bg-white font-weight-bold border-0
-                        text-primary align-middle">
+                <button type="submit" id="navLinks" class="btn btn-primary rounded font-weight-bold border-0 align-middle">
                     Logout
                 </button>
             </form>
