@@ -10,17 +10,22 @@
 -->
 
 @using Microsoft.AspNetCore.Http <!-- It's needed to use data from session in this file'-->
-<ul class="navbar-nav flex-grow-1 ml-auto align-middle">
+<ul class="navbar-nav ">
     @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item">
+<<<<<<< Updated upstream
             <a class="nav-link text-primary align-middle" asp-action="Index" asp-controller="Home" title="Welcome">
                 Welcome,&nbsp;@Context.Session.GetString("CurrentCustomerFirstName")! 
+=======
+            <a id="navLinks" class="nav-link align-middle" asp-action="Index" asp-controller="Home" title="Welcome">
+                Welcome,&nbsp;@Context.Session.GetString("CurrentCustomerFirstName")!
+>>>>>>> Stashed changes
                 <!-- Registered customer is greeted by First name at the navigation panel (top right corner) -->
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" asp-controller="Profile" asp-action="Index">Profile</a>
+            <a id="navLinks" class="nav-link" asp-controller="Profile" asp-action="Index">Profile</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-primary" asp-controller="CustomerBookingPackage" asp-action="Index">My Bookings</a>
@@ -38,10 +43,10 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-primary" asp-controller="Account" asp-action="Login">Login</a>
+            <a id="navLinks" class="nav-link text-left" asp-controller="Account" asp-action="Login">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-primary" asp-controller="Account" asp-action="Register">Register</a>
+            <a id="navLinks" class="nav-link text-left" asp-controller="Account" asp-action="Register">Register</a>
         </li>
     }
 </ul>

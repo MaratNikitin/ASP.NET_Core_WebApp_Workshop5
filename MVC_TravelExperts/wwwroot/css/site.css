@@ -54,8 +54,8 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -68,4 +68,65 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+/*Style for ads*/
+.popularPackages {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+/*Style for ad images*/
+.adImages {
+    border-radius: 10px;
+    width: 90%;
+    height: auto;
+}
+#Logo {
+    height: 50px;
+    width: auto;
+}
+
+#navBar {
+    background-color: #01142B;
+    border-color: #1861ac;
+}
+
+#navLinks {
+    color:white;
+}
+#navLinks:hover {
+    color:orange;
+}
+/*Style for deals*/
+#deals {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: url("../Resources/dealsImg1.jpg");
+    background-size: cover;
+    background-color: royalblue;
+    border-radius: 10px;
+    height: auto;
+}
+/*Style for deals title*/
+#dealTitle {
+    margin-left: 20px;
+    margin-top: 5%;
+    color: white;
+    font-size: 200%;
+}
+/*Style for deal descriptions*/
+#dealDesc {
+    margin-left: 20px;
+    font-size: 100%;
+    color: white;
+    max-width: 500px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#inputFields
+{
+    margin: auto;
 }

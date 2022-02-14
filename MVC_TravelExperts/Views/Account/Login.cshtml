@@ -17,21 +17,17 @@
 <!-- A feedback message to a user confirming successful registration (with green background) or wrong
     username-password combination (with red background) will be displayed here: -->
 
-<form asp-action="Login" class="container">
-    <h1 class="offset-sm-2 text-primary mb-5">Login</h1>
-    <div class="col-12">
-        <div class="form-group form-inline">
-            <div class="col-sm-2">Username: </div>
-            <div><input type="text" asp-for="CustEmail" class="form-control px-3" /></div>
-        </div>
-        <div class="form-group form-inline">
-            <div class="col-sm-2">Password: </div>
-            <div><input type="password" asp-for="CustPassword" class="form-control px-3" /></div>
-        </div>
-        <div class="form-group form-inline">
-            <div class="col-sm-2 offset-sm-2">
-                <input type="submit" value="Log In" class="btn btn-primary px-sm-4 mt-5 px-4" />
-            </div>
-        </div>
+<form asp-action="Login" class="container text-center">
+    <h1 class="text-primary mb-5">Login</h1>
+    <div class="col-3 container text-center">
+
+    <div><input type="text" asp-for="CustEmail" placeholder="Username"class="form-control mb-3 px-3" /></div>
+
+
+    <div><input type="password" asp-for="CustPassword" placeholder="Password" class="form-control px-3" /></div>
+
+
+    <input type="submit" value="Log In" class="btn btn-primary px-sm-4 mt-5 px-4" />
+
     </div>
 </form>
