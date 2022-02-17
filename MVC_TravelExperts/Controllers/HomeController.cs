@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVC_TravelExperts.Models;
-using TravelExpertsData;
-using TravelExpertsData.Models;
+
+/*
+ * This web app creates a website of a fictional travel company called Travel Experts.
+    The website allows users to learn about the company, see contact information, 
+    register a new user, a registered user can login/logout, update own data, see own
+    packages' data
+ *  This is the Home controller responsible for serving the Home Page
+ * Author: ASP.NET Core MVC
+ * SAIT, PROJ 207 - Threaded Project 
+ * When: February 2022
+ */
 
 namespace MVC_TravelExperts.Controllers
 {
@@ -23,15 +28,6 @@ namespace MVC_TravelExperts.Controllers
 
         public IActionResult Index()
         {
-            //// Check if there is no session data and there is user data in cookies (i.e. a situation where we close the app while logged in)
-            //if (HttpContext.Session.GetInt32("CurrentCustomer") == null)
-            //{
-            //    // get the customer from cookies and pass it to the LoginAsync action in the AccountController
-            //    Customer cust = ProfileManager.GetCustomerFromEmail(User.Identity.Name);
-
-            //    return RedirectToAction("LoginAsync", "Account", new { user = cust });
-            //}
-            //else
                 return View();
         }
 

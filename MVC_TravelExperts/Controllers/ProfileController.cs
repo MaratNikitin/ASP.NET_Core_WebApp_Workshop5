@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TravelExpertsData;
 using TravelExpertsData.Models;
 
@@ -49,7 +47,26 @@ namespace MVC_TravelExperts.Controllers
 
             else if(id == "Update My Profile") // they want to change their info
             {
-                return View("UpdateProfile", currentCustomer);
+                // creating a list of Canadian provinces for a dropdown list:
+                List<SelectListItem> provincesList = new List<SelectListItem>()
+                {
+                    new SelectListItem{ Value = "AB", Text = "Alberta" },
+                    new SelectListItem{ Value = "BC", Text = "British Columbia" },
+                    new SelectListItem{ Value = "MB", Text = "Manitoba" },
+                    new SelectListItem{ Value = "NB", Text = "New Brunswick" },
+                    new SelectListItem{ Value = "NL", Text = "Newfoundland and Labrador" },
+                    new SelectListItem{ Value = "NS", Text = "Nova Scotia" },
+                    new SelectListItem{ Value = "NT", Text = "Northwest Territories" },
+                    new SelectListItem{ Value = "NU", Text = "Nunavut" },
+                    new SelectListItem{ Value = "ON", Text = "Ontario" },
+                    new SelectListItem{ Value = "PE", Text = "Prince Edward Island" },
+                    new SelectListItem{ Value = "QC", Text = "Quebec" },
+                    new SelectListItem{ Value = "SK", Text = "Saskatchewan" },
+                    new SelectListItem{ Value = "YT", Text = "Yukon" },
+                };
+                ViewBag.Provinces = provincesList; // saving list of Canadian provinces in the ViewBag to use
+                                                   // it later in the dropdown list  of the view
+                return View("UpdateProfile", currentCustomer); 
             }
 
             else // change password

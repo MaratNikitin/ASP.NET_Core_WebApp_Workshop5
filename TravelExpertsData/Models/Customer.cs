@@ -91,12 +91,12 @@ namespace TravelExpertsData.Models
         [StringLength(20)]
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Please enter password")]
-        [Compare("ConfirmPassword")]
         public string CustPassword { get; set; }
 
         [Required(ErrorMessage = "Please confirm your password.")]
         [Display(Name = "Confirm Password")]
         [NotMapped] // excluding from DB tracking
+        [Compare("CustPassword")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Agent ID")]

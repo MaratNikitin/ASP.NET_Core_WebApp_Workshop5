@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVC_TravelExperts.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TravelExpertsData.Models;
 /*
 *This web app creates a website of a fictional travel company called Travel Experts.

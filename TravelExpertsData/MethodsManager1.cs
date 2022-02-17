@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*
+﻿/*
  * This web app creates a website of a fictional travel company called Travel Experts.
     The website allows users to learn about the company, see contact information, 
     register a new user, a registered user can login/logout, update own data, see own

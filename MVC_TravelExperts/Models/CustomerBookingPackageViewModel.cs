@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 /*
 *This web app creates a website of a fictional travel company called Travel Experts.
     The website allows users to learn about the company, see contact information,
@@ -14,6 +11,7 @@ using System.Threading.Tasks;
  * SAIT, PROJ 207 - Threaded Project
  * When: February 2022
  */
+
 namespace MVC_TravelExperts.Models
 {
     public class CustomerBookingPackageViewModel
@@ -38,10 +36,6 @@ namespace MVC_TravelExperts.Models
         // this class is only used for passing to the view
 
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public decimal SubTotal{ get; set; }
-
-        
-
-      
+        public decimal SubTotal{ get; set; }      
     }
 }
