@@ -1,0 +1,2 @@
+- Please make sure you have MongoDB set up and add trevelExperts.sql file to your MongoDB before using this application.
+- Make sure the connection string is correct
