@@ -1,2 +1,2 @@
-- Please make sure you have MongoDB set up and add trevelExperts.sql file to your MongoDB before using this application.
-- Make sure the connection string is correct
+This is a desktop application that displays tables from travelexperts.sql.
+This is a school project where that links and manipulates data in the travelexperts database.
