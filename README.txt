@@ -1,2 +1,1 @@
-This is a desktop application that displays tables from travelexperts.sql.
-This is a school project where that links and manipulates data in the travelexperts database.
+It's a repository for Group 1 Threaded Project Part 2 (SAIT OOSD Fall 2021) - Workshops #5 - ASP.NET Web Application
